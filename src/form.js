@@ -4,7 +4,9 @@ class Form extends React.Component {
   constructor(props) {
     super(props); // for now, just do this
     this.state = {
-      url: 'nothing to see yet'
+      url: '',
+      method: '',
+      urlMethod: '',
     }
   }
 
@@ -15,26 +17,31 @@ class Form extends React.Component {
 
   handleClick = e => {
     e.preventDefault();
-    let url = this.state.url.split('').reverse().join('');
-    this.setState({ url });
+    let urlMethod = this.state.method +  ' ' + this.state.url;
+    this.setState({ urlMethod });
+  }
+
+  setMethod = e => {
+    // e.preventDefault();
+    let method = e.target.value;
+    this.setState({ method });
   }
 
   render() {
     return (
       <div>
-        <div>
-          <input type="text" onChange={this.handleChange} placeholder="Enter URL here" />
-          <button onClick={this.handleClick}>GO!</button>
-        </div>
-        <div>
-          <button id='get'>GET</button>
-          <button id='post'>POST</button>
-          <button id='put'>PUT</button>
-          <button id='delete'>DELETE</button>
-        </div>
-        <div>
-          <h3>{this.state.url}</h3>
-        </div>
+        <form id='url'>
+          <input type="text" required='true' onChange={this.handleChange} placeholder="Enter URL here" />
+          <button type='button' onClick={this.handleClick}>GO!</button>
+          <br></br>
+          <label><input onChange={this.setMethod} required='true' type='radio' name='method' value='get' id='get'></input>get</label>
+          <label><input onChange={this.setMethod} required='true' type='radio' name='method' value='put' id='put'></input>put</label>
+          <label><input onChange={this.setMethod} required='true' type='radio' name='method' value='post' id='post'></input>post</label>
+          <label><input onChange={this.setMethod} required='true' type='radio' name='method' value='delete' id='delete'></input>delete</label>
+        </form>
+        <ul>
+          <li>{this.state.urlMethod}</li>
+        </ul>
       </div>
     )
   }
