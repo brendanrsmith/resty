@@ -1,2 +1,30 @@
-# resty
-RESTy api testing application
+# LAB - Week 6
+
+## Project: RESTy
+
+### Author: Brendan Smith
+
+### Links and Resources
+
+- [CodeSandbox]()
+- [pull request](https://github.com/brendigler/resty/pull/1)
+
+### Setup
+
+#### `.env` requirements
+
+- none
+
+#### How to initialize/run your application
+
+- clone to local repo
+- `npm install`
+- `npm start`
+
+<!-- #### Tests -->
+
+<!-- - Run tests with `npm test` -->
+
+<!-- #### UML / Application Wiring Diagram -->
+
+<!-- ![UML](uml.png) -->
