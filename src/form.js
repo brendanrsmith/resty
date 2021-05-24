@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './styles/form.scss'
 class Form extends React.Component {
   constructor(props) {
     super(props); // for now, just do this
