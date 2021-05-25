@@ -2,10 +2,13 @@ label {
   padding: .1rem;
 }
 ul{
-  border: 1px solid #002a35;
+  border: 2px solid #002a35;
   border-radius: 6px;
   list-style-type: none;
-  height: 30vh;
+  min-height: 30vh;
+  max-width: 600px;
+  margin: 16px auto;
   padding: 1rem;
   font-size: larger;
+  background-color: #eee;
 }
