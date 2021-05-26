@@ -6,8 +6,10 @@
 
 ### Links and Resources
 
+
 - [deployed site](https://trusting-williams-88a5e6.netlify.app/)
 - [pull request](https://github.com/brendigler/resty/pull/2)
+
 
 ### Setup
 
