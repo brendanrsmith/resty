@@ -5,6 +5,7 @@ import Header from './header.js';
 import Footer from './footer.js';
 import Form2 from './form2';
 import Results from './results';
+import History from './history';
 
 class App extends React.Component {
 
@@ -31,6 +32,7 @@ class App extends React.Component {
       <React.Fragment>
         <Header />
         <Form2 prompt="Go!" toggleLoading={this.toggleLoading} handler={this.handleForm} />
+        <History count={this.state.count} />
         <Results header={this.state.header} count={this.state.count} results={this.state.results} loading={this.state.loading} />
         <Footer />
       </React.Fragment>

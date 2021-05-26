@@ -9,3 +9,10 @@ body {
   background-color: #c3786f;
   margin: auto;
 }
+
+#root {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px auto);
+  gap: 1rem;
+}
