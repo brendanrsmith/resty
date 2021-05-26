@@ -13,7 +13,8 @@ class App extends React.Component {
     this.state = {
       loading: false,
       count: 0,
-      results: []
+      results: [],
+      header: ""
     }
   }
 
@@ -21,8 +22,8 @@ class App extends React.Component {
     this.setState({ loading: !this.state.loading });
   }
 
-  handleForm = (count, results) => {
-    this.setState({count, results});
+  handleForm = (header, count, results) => {
+    this.setState({header, count, results});
   }
 
   render() {
@@ -30,7 +31,7 @@ class App extends React.Component {
       <React.Fragment>
         <Header />
         <Form2 prompt="Go!" toggleLoading={this.toggleLoading} handler={this.handleForm} />
-        <Results count={this.state.count} results={this.state.results} />
+        <Results header={this.state.header} count={this.state.count} results={this.state.results} loading={this.state.loading} />
         <Footer />
       </React.Fragment>
     )

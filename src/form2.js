@@ -7,7 +7,7 @@ class Form extends React.Component {
     super(props);
     this.state = {
       url: "",
-      method: ""
+      method: "GET"
     }
   }
 
@@ -24,14 +24,14 @@ class Form extends React.Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-
+    this.props.toggleLoading();
     let raw = await fetch(this.state.url);
     let data = await raw.json();
     let count = data.count;
-
+    let header = data.headers;
     console.log(data);
     let results = data.results;
-    this.props.handler(count, results);
+    this.props.handler(header, count, results);
     this.props.toggleLoading();
   }
 
@@ -41,10 +41,10 @@ class Form extends React.Component {
         <input type="text" required='true' onChange={this.handleChange} placeholder="Enter URL here" />
         <button>{this.props.prompt}</button>
         <br></br>
-        <button type='button' defaultChecked='true' onClick={this.setMethod} value='get'>GET</button>
-        <button type='button' defaultChecked='false' onClick={this.setMethod} value='put'>PUT</button>
-        <button type='button' defaultChecked='false' onClick={this.setMethod} value='post'>POST</button>
-        <button type='button' defaultChecked='false' onClick={this.setMethod} value='delete'>DELETE</button>
+        <button type='button' defaultChecked='true' onClick={this.setMethod} value='GET'>GET</button>
+        <button type='button' defaultChecked='false' onClick={this.setMethod} value='PUT'>PUT</button>
+        <button type='button' defaultChecked='false' onClick={this.setMethod} value='POST'>POST</button>
+        <button type='button' defaultChecked='false' onClick={this.setMethod} value='DELETE'>DELETE</button>
       </form>
     )
   }
