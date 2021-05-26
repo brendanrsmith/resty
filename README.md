@@ -29,4 +29,4 @@
 
 <!-- #### UML / Application Wiring Diagram -->
 
-<!-- ![UML](uml.png) -->
+![RESTy](https://user-images.githubusercontent.com/44657354/119695998-5cc57580-be14-11eb-80b4-5f5c7793b912.jpg)
