@@ -1,11 +1,39 @@
 label {
   padding: .1rem;
 }
+
 ul{
-  border: 1px solid #002a35;
+  border: 2px solid #002a35;
   border-radius: 6px;
   list-style-type: none;
-  height: 30vh;
+  min-height: 30vh;
+  max-width: 600px;
+  margin: 16px auto;
   padding: 1rem;
-  font-size: larger;
+  background-color: #eee;
+  text-align: left;
+}
+pre {
+  max-width: 600px;
+  overflow: hidden;
+}
+
+form {
+  text-align: center;
+  margin-top: 16px;
+}
+
+input {
+  width: 40vw;
+  margin: 4px 0 ;
+  padding: 4px;
+}
+
+button {
+  padding: 4px;
+  margin-left: 2px;
+
+  :checked{
+    background-color: lawngreen;
+  }
 }
