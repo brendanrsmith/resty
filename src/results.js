@@ -16,7 +16,9 @@ class Results extends React.Component {
             </If>
             <Else>
               <ul>
-                <pre>{JSON.stringify(this.props, null, 4)}</pre>
+                <pre><b>Count:</b> {this.props.count}</pre>
+                <pre><b>Headers:</b> {JSON.stringify(this.props.headers, null, 4)}</pre>
+                <pre><b>Body:</b> {JSON.stringify(this.props.results, null, 4)}</pre>
               </ul>
             </Else>
           </Then>
