@@ -17,6 +17,7 @@ class App extends React.Component {
       results: [],
       headers: "",
       history: []
+      // TODO: move history to local Storage
     }
   }
 
@@ -30,8 +31,7 @@ class App extends React.Component {
   }
 
   handleHist = (query) => {
-    // TODO:
-
+    // TODO: click history item to propogate query input
   }
 
   render() {
