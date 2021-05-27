@@ -1,10 +1,11 @@
 import React from 'react';
 import './styles/style.scss';
 
-import Header from './header.js';
+import Headers from './header.js';
 import Footer from './footer.js';
 import Form2 from './form2';
 import Results from './results';
+import History from './history';
 
 class App extends React.Component {
 
@@ -13,7 +14,10 @@ class App extends React.Component {
     this.state = {
       loading: false,
       count: 0,
-      results: []
+      results: [],
+      headers: "",
+      history: []
+      // TODO: move history to local Storage
     }
   }
 
@@ -21,16 +25,22 @@ class App extends React.Component {
     this.setState({ loading: !this.state.loading });
   }
 
-  handleForm = (count, results) => {
-    this.setState({count, results});
+  handleForm = (headers, count, results, search) => {
+    this.setState({headers, count, results});
+    this.setState({history: [...this.state.history, search]});
+  }
+
+  handleHist = (query) => {
+    // TODO: click history item to propogate query input
   }
 
   render() {
     return (
       <React.Fragment>
-        <Header />
+        <Headers />
         <Form2 prompt="Go!" toggleLoading={this.toggleLoading} handler={this.handleForm} />
-        <Results count={this.state.count} results={this.state.results} />
+        <History history={this.state.history} handler={this.handleHist}/>
+        <Results headers={this.state.headers} count={this.state.count} results={this.state.results} loading={this.state.loading} />
         <Footer />
       </React.Fragment>
     )

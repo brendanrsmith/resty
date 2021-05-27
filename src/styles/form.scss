@@ -1,18 +1,20 @@
 label {
   padding: .1rem;
 }
+.results {
+  grid-column: 2/4;
+}
 
-ul{
+ul {
   border: 2px solid #002a35;
   border-radius: 6px;
   list-style-type: none;
-  min-height: 30vh;
-  max-width: 600px;
-  margin: 16px auto;
+  margin: 0 16px 0 0 ;
   padding: 1rem;
   background-color: #eee;
   text-align: left;
 }
+
 pre {
   max-width: 600px;
   overflow: hidden;
@@ -20,20 +22,15 @@ pre {
 
 form {
   text-align: center;
-  margin-top: 16px;
+  grid-column: 1/4;
 }
 
 input {
   width: 40vw;
-  margin: 4px 0 ;
   padding: 4px;
 }
 
 button {
   padding: 4px;
   margin-left: 2px;
-
-  :checked{
-    background-color: lawngreen;
-  }
 }
