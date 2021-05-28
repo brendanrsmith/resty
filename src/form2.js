@@ -31,10 +31,10 @@ class Form extends React.Component {
     }
     const raw = await axios(query);
     const data = raw.data;
+    console.log(data.data);
     const count = data.count;
     const headers = raw.headers;
-    const results = data.results;
-    console.log(query);
+    const results = data;
     this.props.handler(headers, count, results, query);
     this.props.toggleLoading();
   }
