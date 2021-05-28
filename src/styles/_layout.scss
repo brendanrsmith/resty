@@ -47,6 +47,10 @@ main {
   grid-column: 1;
   // border: 1px solid $secondary-color;
   border-radius: $round-border;
+
+  button{
+    width: 90%;
+  }
 }
 
 input {
