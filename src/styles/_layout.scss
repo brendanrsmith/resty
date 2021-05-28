@@ -1,6 +1,15 @@
+#root {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px auto);
+  gap: 1rem;
+}
+
 header {
-  background: $primary-color;
-  height: 4vw;
+  background: $secondary-color;
+  color: $primary-color;
+  grid-column: 1/4;
+
 
   h1 {
     float: left;
@@ -12,7 +21,7 @@ header {
   }
 
   a {
-    color: $secondary-color;
+    color: $white;
     text-decoration: none;
   }
 }
@@ -27,4 +36,30 @@ main {
     margin: $gutter-medium;
     border-radius: $round-border;
   }
+}
+
+#history {
+  margin: 0 0 0 16px;
+  grid-column: 1;
+  border: 1px solid $secondary-color;
+  border-radius: $round-border;
+}
+
+input {
+  width: 40vw;
+  padding: 8px 10px;
+}
+
+button {
+  padding: 8px 10px;
+  margin: 2px;
+  border: none;
+  background-color: $white;
+  &:hover {
+    background-color: $secondary-color;
+    color: $white;
+  }
+  
+  
+  
 }

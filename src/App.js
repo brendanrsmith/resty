@@ -2,8 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import './styles/style.scss';
-// import './core.scss';
+import './core.scss';
 
 import Headers from './header/Header.js';
 import Footer from './footer/Footer.js';
