@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/form.scss'
+import './form.scss'
 import axios from 'axios';
 class Form extends React.Component {
 
@@ -31,10 +31,10 @@ class Form extends React.Component {
     }
     const raw = await axios(query);
     const data = raw.data;
+    console.log(data.data);
     const count = data.count;
     const headers = raw.headers;
-    const results = data.results;
-    console.log(query);
+    const results = data;
     this.props.handler(headers, count, results, query);
     this.props.toggleLoading();
   }
@@ -45,10 +45,11 @@ class Form extends React.Component {
         <input type="text" required='true' onChange={this.handleChange} placeholder="Enter URL here" />
         <button>{this.props.prompt}</button>
         <br></br>
-        <button type='button' defaultChecked='true' onClick={this.setMethod} value='GET'>GET</button>
-        <button type='button' defaultChecked='false' onClick={this.setMethod} value='PUT'>PUT</button>
-        <button type='button' defaultChecked='false' onClick={this.setMethod} value='POST'>POST</button>
-        <button type='button' defaultChecked='false' onClick={this.setMethod} value='DELETE'>DELETE</button>
+        <button className={`method-${this.state.method === 'GET'}`} onClick={this.setMethod} value='GET'>GET</button>
+        <button className={`method-${this.state.method === 'PUT'}`} onClick={this.setMethod} value='PUT'>PUT</button>
+        <button className={`method-${this.state.method === 'POST'}`} onClick={this.setMethod} value='POST'>POST</button>
+        <button className={`method-${this.state.method === 'DELETE'}`} onClick={this.setMethod} value='DELETE'>DELETE</button>
+        {/* <textarea rows="2" name='text-body'></textarea> */}
       </form>
     )
   }

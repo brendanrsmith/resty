@@ -3,12 +3,7 @@ label {
 }
 .results {
   grid-column: 2/4;
-}
-
-ul {
-  border: 2px solid #002a35;
-  border-radius: 6px;
-  list-style-type: none;
+  border-radius: 4px;
   margin: 0 16px 0 0 ;
   padding: 1rem;
   background-color: #eee;
@@ -25,12 +20,3 @@ form {
   grid-column: 1/4;
 }
 
-input {
-  width: 40vw;
-  padding: 4px;
-}
-
-button {
-  padding: 4px;
-  margin-left: 2px;
-}

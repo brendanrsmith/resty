@@ -1,11 +1,15 @@
 import React from 'react';
-import './styles/style.scss';
+import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import Headers from './header.js';
-import Footer from './footer.js';
-import Form2 from './form2';
-import Results from './results';
-import History from './history';
+import './core.scss';
+
+import Headers from './header/Header.js';
+import Footer from './footer/Footer.js';
+import Form from './form/Form';
+import History from './history/History';
+import Results from './results/Results';
+import Help from './Help';
 
 class App extends React.Component {
 
@@ -26,25 +30,40 @@ class App extends React.Component {
   }
 
   handleForm = (headers, count, results, search) => {
-    this.setState({headers, count, results});
-    this.setState({history: [...this.state.history, search]});
+    this.setState({ headers, count, results });
+    this.setState({ history: [...this.state.history, search] });
   }
 
   handleHist = (query) => {
     // TODO: click history item to propogate query input
+
+    // sessionStorage.getItem('query')
+    // sessionStorage.setItem('query', JSON.stringify(query));
   }
+
 
   render() {
     return (
-      <React.Fragment>
+      <BrowserRouter>
         <Headers />
-        <Form2 prompt="Go!" toggleLoading={this.toggleLoading} handler={this.handleForm} />
-        <History history={this.state.history} handler={this.handleHist}/>
-        <Results headers={this.state.headers} count={this.state.count} results={this.state.results} loading={this.state.loading} />
+        <Switch>
+          <Route exact path="/">
+            <Form prompt="Go!" toggleLoading={this.toggleLoading} handler={this.handleForm} />
+            <History history={this.state.history} handler={this.handleHist} />
+            <Results headers={this.state.headers} count={this.state.count} results={this.state.results} loading={this.state.loading} />
+          </Route>
+          <Route path="/history">
+            <History history={this.state.history} handler={this.handleHist} />
+          </Route>
+          <Route path="/help">
+            <Help />
+          </Route>
+        </Switch>
         <Footer />
-      </React.Fragment>
+      </BrowserRouter>
     )
   }
+
 }
 
 export default App;
