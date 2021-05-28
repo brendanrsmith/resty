@@ -9,12 +9,16 @@ header {
   background: $secondary-color;
   color: $primary-color;
   grid-column: 1/4;
+  font-weight: 300;
 
 
   h1 {
     float: left;
     margin: $gutter;
+    color: $highlight-color;
+    font-size: 1.2rem;
   }
+  
   li {
     display: inline-block;
     margin: $gutter $gutter-medium;
@@ -41,7 +45,7 @@ main {
 #history {
   margin: 0 0 0 16px;
   grid-column: 1;
-  border: 1px solid $secondary-color;
+  // border: 1px solid $secondary-color;
   border-radius: $round-border;
 }
 
@@ -56,10 +60,26 @@ button {
   border: none;
   background-color: $white;
   &:hover {
-    background-color: $secondary-color;
+    background-color: $highlight-color;
     color: $white;
   }
-  
-  
-  
+  &.method-true {
+    background-color: $highlight-color;
+    color: $white;
+  }
+}
+
+.help {
+  grid-column: 2/3;
+  background-color: $white;
+  min-height: 70vh;
+  border-radius: $round-border;
+
+  h1 {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+  p {
+    line-height: 2rem;;
+  }
 }
