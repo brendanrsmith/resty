@@ -1,6 +1,6 @@
 import React from 'react';
 import { If, Then, Else } from 'react-if';
-import './styles/form.scss'
+// import '../core.scss';
 
 class Results extends React.Component {
 

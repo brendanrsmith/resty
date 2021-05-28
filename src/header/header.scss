@@ -1,0 +1,25 @@
+header {
+  background-color: #002a35e1;
+  color: #c3786f;
+  // padding: 1rem;
+  // margin: 0;
+  grid-column: 1/4;
+  height: 4rem;
+
+  h1{
+    float: left;
+    margin: 1rem;
+  }
+
+  ul {
+    float: left;
+  }
+  li{
+    display: inline-block;
+    margin: auto 1em;
+  }
+
+  a {
+    color:gainsboro;
+  }
+}

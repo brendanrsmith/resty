@@ -3,12 +3,13 @@ import { Route, Switch } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import './styles/style.scss';
+// import './core.scss';
 
-import Headers from './Header.js';
-import Footer from './Footer.js';
-import Form from './Form2';
-import History from './History';
-import Results from './Results';
+import Headers from './header/Header.js';
+import Footer from './footer/Footer.js';
+import Form from './form/Form';
+import History from './history/History';
+import Results from './results/Results';
 import Help from './Help';
 
 class App extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/form.scss'
+import './form.scss'
 import axios from 'axios';
 class Form extends React.Component {
 

@@ -1,0 +1,30 @@
+header {
+  background: $primary-color;
+  height: 4vw;
+
+  h1 {
+    float: left;
+    margin: $gutter;
+  }
+  li {
+    display: inline-block;
+    margin: $gutter $gutter-medium;
+  }
+
+  a {
+    color: $secondary-color;
+    text-decoration: none;
+  }
+}
+
+main {
+  width: $site-width;
+  margin: $gutter auto;
+
+  li {
+    background-color:#ffffff2c;
+    padding: $gutter-small;
+    margin: $gutter-medium;
+    border-radius: $round-border;
+  }
+}
