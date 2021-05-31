@@ -1,22 +1,8 @@
-label {
-  padding: .1rem;
-}
-.results {
-  grid-column: 2/4;
-  border-radius: 4px;
-  margin: 0 16px 0 0 ;
-  padding: 1rem;
-  background-color: #eee;
-  text-align: left;
-}
-
-pre {
-  max-width: 600px;
-  overflow: hidden;
-}
-
 form {
   text-align: center;
   grid-column: 1/4;
-}
 
+  label {
+    padding: .1rem;
+  }
+}

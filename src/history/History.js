@@ -5,7 +5,7 @@ import React from 'react';
 class History extends React.Component {
 
   render() {
-    let items = this.props.history.map((query, i) => <li key={i}><button onClick={this.props.handler(query)}>{query.method} {query.url}</button></li>);
+    let items = this.props.history.map((query, i) => <li key={i}><button onClick={() => { this.props.handler(query) }}>{query.method} {query.url}</button></li>);
 
     return (
       <section id="history">
