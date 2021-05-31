@@ -35,7 +35,7 @@ main {
   margin: $gutter auto;
 
   li {
-    background-color:#ffffff2c;
+    // background-color:#ffffff2c;
     padding: $gutter-small;
     margin: $gutter-medium;
     border-radius: $round-border;
@@ -50,6 +50,15 @@ main {
 
   button{
     width: 90%;
+    display: flex;
+    overflow:hidden;
+    
+    .queryMethod {
+      // background-color: $highlight-color;
+      word-wrap: break-word;
+      border-radius: $round-border;
+      padding-right: 1rem;
+    }
   }
 }
 
@@ -66,6 +75,7 @@ button {
   &:hover {
     background-color: $highlight-color;
     color: $white;
+    cursor: pointer;
   }
   &.method-true {
     background-color: $highlight-color;
@@ -85,5 +95,19 @@ button {
   }
   p {
     line-height: 2rem;;
+  }
+}
+.results {
+  grid-column: 2/4;
+  border-radius: 4px;
+  margin: 0 16px 0 0 ;
+  padding: 1rem;
+  background-color: $white;
+  text-align: left;
+  min-height: 15vh;
+
+  pre {
+    max-width: 600px;
+    overflow: hidden;
   }
 }

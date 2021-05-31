@@ -1,6 +1,5 @@
 import React from 'react';
 import './form.scss'
-import axios from 'axios';
 class Form extends React.Component {
 
   constructor(props) {
@@ -24,19 +23,11 @@ class Form extends React.Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    this.props.toggleLoading();
     const query = {
       url: this.state.url,
       method: this.state.method
     }
-    const raw = await axios(query);
-    const data = raw.data;
-    console.log(data.data);
-    const count = data.count;
-    const headers = raw.headers;
-    const results = data;
-    this.props.handler(headers, count, results, query);
-    this.props.toggleLoading();
+    this.props.handler(query);
   }
 
   render() {

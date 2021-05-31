@@ -1,24 +1,29 @@
 import React from 'react';
 import { If, Then, Else } from 'react-if';
-// import '../core.scss';
 
 class Results extends React.Component {
 
   render() {
     return (
       <section className="results">
-            <If condition={this.props.loading}>
+        <If condition={this.props.loading}>
+          <Then>
+            <div className="loader"></div>
+          </Then>
+          <Else>
+            <If condition={this.props.loaded}>
               <Then>
-                <h3>Loading...</h3>
+                <ul>
+                  <pre><b>Count:</b> {this.props.count}</pre>
+                  <pre><b>Headers:</b> {JSON.stringify(this.props.headers, null, 4)}</pre>
+                  <pre><b>Body:</b> {JSON.stringify(this.props.results, null, 4)}</pre>
+                </ul>
               </Then>
+              <Else>
+              </Else>
             </If>
-            <Else>
-              <ul>
-                <pre><b>Count:</b> {this.props.count}</pre>
-                <pre><b>Headers:</b> {JSON.stringify(this.props.headers, null, 4)}</pre>
-                <pre><b>Body:</b> {JSON.stringify(this.props.results, null, 4)}</pre>
-              </ul>
-            </Else>
+          </Else>
+        </If>
       </section >
     )
   }
