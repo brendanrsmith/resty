@@ -50,6 +50,8 @@ class App extends React.Component {
     // TODO: click history item to propogate query input
     console.log(query);
     await this.handleForm(query);
+    console.log(this.state.history);
+    this.setState({ history: this.state.history.splice(0, this.state.history.length - 1) });
     // sessionStorage.getItem('query')
     // sessionStorage.setItem('query', JSON.stringify(query));
   }

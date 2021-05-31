@@ -50,6 +50,15 @@ main {
 
   button{
     width: 90%;
+    display: flex;
+    overflow:hidden;
+    
+    .queryMethod {
+      // background-color: $highlight-color;
+      word-wrap: break-word;
+      border-radius: $round-border;
+      padding-right: 1rem;
+    }
   }
 }
 
