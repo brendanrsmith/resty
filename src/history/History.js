@@ -9,7 +9,6 @@ class History extends React.Component {
 
     return (
       <section id="history">
-        <h3>History</h3>
         <ul>
           {items}
         </ul>
