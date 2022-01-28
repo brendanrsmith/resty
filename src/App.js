@@ -56,7 +56,7 @@ export default function App(props) {
 
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/resty'>
       <Headers />
       <Switch>
         <Route exact path="/">
