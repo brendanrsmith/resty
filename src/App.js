@@ -1,6 +1,5 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 
 import './core.scss';
@@ -12,76 +11,74 @@ import History from './history/History';
 import Results from './results/Results';
 import Help from './Help';
 
-class App extends React.Component {
+export default function App(props) {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      loaded: false,
-      loading: false,
-      count: 0,
-      results: [],
-      headers: "",
-      history: []
-      // TODO: move history to local Storage
+  const [loaded, setLoaded] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [count, setCount] = useState(0);
+  const [results, setResults] = useState([]);
+  const [headers, setHeaders] = useState('');
+  const [history, setHistory] = useState([]);
+  // TODO: move history to local Storage
+
+  const toggleLoading = (loading) => {
+    setLoading(loading);
+  };
+
+  const handleForm = async (query) => {
+    toggleLoading(true);
+    try {
+      const raw = await axios(query);
+      const data = raw.data;
+      const count = data.count;
+      const headers = raw.headers;
+      const results = data;
+      setHeaders(headers);
+      setCount(count);
+      setResults(results);
+      setHistory([...history, query]);
+      setLoaded(true);
+      toggleLoading(false);
+    } catch (error) {
+      return;
     }
-  }
+  };
 
-  toggleLoading = () => {
-    this.setState({ loading: !this.state.loading });
-  }
-
-  handleForm = async (query) => {
-    console.log('handleform called', query);
-    this.toggleLoading();
-    const raw = await axios(query);
-    const data = raw.data;
-    console.log(data.data);
-    const count = data.count;
-    const headers = raw.headers;
-    const results = data;
-    this.setState({ headers, count, results });
-    this.setState({ history: [...this.state.history, query] });
-    this.setState({ loaded: true });
-    this.toggleLoading();
-  }
-
-  handleHist = async (query) => {
+  const handleHist = async (query) => {
     // TODO: click history item to propogate query input
-    console.log(query);
-    await this.handleForm(query);
-    console.log(this.state.history);
-    this.setState({ history: this.state.history.splice(0, this.state.history.length - 1) });
+    // console.log(query);
+    await handleForm(query);
+    // console.log(this.state.history);
+    setHistory(history.splice(0, history.length));
     // sessionStorage.getItem('query')
     // sessionStorage.setItem('query', JSON.stringify(query));
-  }
+  };
 
 
-  render() {
-    return (
-      <BrowserRouter>
-        <Headers />
-        <Switch>
-          <Route exact path="/">
-            <Form prompt="Go!" toggleLoading={this.toggleLoading} handler={this.handleForm} />
-            {/* TODO: <div className="reshist"> */}
-            <History history={this.state.history} handler={this.handleHist} />
-            <Results headers={this.state.headers} count={this.state.count} results={this.state.results} loading={this.state.loading} loaded={this.state.loaded} />
-            {/* </div> */}
-          </Route>
-          <Route path="/history">
-            <History history={this.state.history} handler={this.handleHist} />
-            <Results results={this.state.results} loading={this.state.loading} loaded={this.state.loaded} />
-          </Route>
-          <Route path="/help">
-            <Help />
-          </Route>
-        </Switch>
-        <Footer />
-      </BrowserRouter>
-    )
-  }
-
+  return (
+    <BrowserRouter>
+      <Headers />
+      <Switch>
+        <Route exact path="/">
+          <Form prompt="Go!" toggleLoading={toggleLoading} handler={handleForm} />
+          {/* TODO: <div className="reshist"> */}
+          <History history={history} handler={handleHist} />
+          <Results headers={headers} count={count} results={results} loading={loading} loaded={loaded} />
+          {/* </div> */}
+        </Route>
+        <Route path="/history">
+          <History history={history} handler={handleHist} />
+          <Results results={results} loading={loading} loaded={loaded} />
+          <div></div>
+        </Route>
+        <Route path="/help">
+          <Help />
+          <div></div>
+          <div></div>
+        </Route>
+      </Switch>
+      <Footer />
+    </BrowserRouter>
+  )
 }
 
-export default App;
