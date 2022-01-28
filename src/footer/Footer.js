@@ -1,9 +1,8 @@
-import './footer.scss';
 
 const Footer = () => {
   return (
     <footer>
-      <p>© Brendan Smith 2021</p>
+      <p>Brendan Smith 2021</p>
     </footer>
   )
 }

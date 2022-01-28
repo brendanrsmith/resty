@@ -9,12 +9,6 @@
 - [deployed site](https://trusting-williams-88a5e6.netlify.app/)
 - [pull request](https://github.com/brendigler/resty/pull/2)
 
-### Setup
-
-#### `.env` requirements
-
-- none
-
 #### How to initialize/run your application
 
 - clone to local repo
