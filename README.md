@@ -7,7 +7,7 @@
 ### Links and Resources
 
 
-- [deployed site](https://trusting-williams-88a5e6.netlify.app/)
+- [deployed site](https://www.brendansmith.dev/resty/)
 - [pull request](https://github.com/brendigler/resty/pull/2)
 
 
