@@ -4,6 +4,10 @@
 
 ### Author: Brendan Smith
 
+### Description
+A React based application which allows users to hit HTTP routes with GET, PUT, POST, or DELETE method requests, utilizing React state to store user input, Ajax for api calls, react-router for route management, and local storage for persistence. The app is deployed via Github Pages.
+
+
 ### Links and Resources
 
 
